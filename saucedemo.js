@@ -24,7 +24,7 @@ async function saucedemoLoginTest() {
             cartItemCount, "1", "Item was not added to the cart");
 
     } finally {
-        // await driver.quit();
+        
     }
 }
 
