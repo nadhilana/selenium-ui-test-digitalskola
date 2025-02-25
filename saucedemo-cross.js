@@ -1,0 +1,51 @@
+const { Builder, By, Key, until } = require("selenium-webdriver");
+const assert = require("assert");
+
+async function saucedemoLoginTest() {
+  const browsers = ["chrome", "firefox", "MicrosoftEdge"];
+
+  for (let browser of browsers){
+  // Membuat koneksi dengan webdriver
+  let driver = await new Builder().forBrowser(browser).build();
+
+  // Exception Handling & Conclusion
+  try {
+    // Buka URL di browser
+    await driver.get("https://saucedemo.com");
+
+    await driver.findElement(By.id("user-name")).sendKeys("standard_user");
+    await driver
+      .findElement(By.xpath("//input[@id='password']"))
+      .sendKeys("secret_sauce");
+
+    await driver.findElement(By.name("login-button")).click();
+
+    // Assertion - Memastikan user berada di dashboard setelah login
+    let titleText = await driver.findElement(By.css(".app_logo")).getText();
+    assert.strictEqual(
+      titleText.includes("Swag Labs"),
+      true,
+      'Title does not include "Swag Labs"'
+    );
+
+    // Menambahkan item pertama (contoh "Sauce Labs Backpack") ke cart
+    await driver
+      .findElement(By.xpath("//div[@class='inventory_item'][1]//button"))
+      .click();
+
+    // Validasi bahwa item berhasil ditambahkan ke keranjang
+    let cartCount = await driver
+      .findElement(By.css(".shopping_cart_badge"))
+      .getText();
+
+    // Assert bahwa jumlah item di keranjang bertambah menjadi 1
+    assert.strictEqual(cartCount, "1", "Item was not added to the cart successfully");
+
+    console.log("Testing Success! with browser " + browser);
+    } finally {
+    await driver.quit();
+   }
+  }
+}
+
+saucedemoLoginTest();
