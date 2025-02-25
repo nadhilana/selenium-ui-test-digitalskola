@@ -2,7 +2,7 @@ const { Builder, By, Key, until } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
 const assert = require("assert");
 
-async function saucedemoLoginTest() {
+async function saucedemoTest() {
   // Menambahkan Chrome Option
   let options = new chrome.Options();
   options.addArguments("--headless");
@@ -30,14 +30,12 @@ async function saucedemoLoginTest() {
       'Title does not include "Swag Labs"'
     );
 
-    // Add item to cart
     // Menambahkan item pertama (contohnya "Sauce Labs Backpack") ke cart
     await driver
       .findElement(By.xpath("//div[@class='inventory_item'][1]//button"))
       .click();
 
-    // Validate item successfully added to the cart
-    // Memastikan bahwa item berhasil ditambahkan ke keranjang
+    // Validasi bahwa item berhasil ditambahkan ke keranjang
     let cartCount = await driver
       .findElement(By.css(".shopping_cart_badge"))
       .getText();
@@ -47,9 +45,8 @@ async function saucedemoLoginTest() {
 
     console.log("Testing Success Running Headless in Chrome!");
   } finally {
-    // Optionally close the browser after the test is complete
-    // await driver.quit();
+    await driver.quit();
   }
 }
 
-saucedemoLoginTest();
+saucedemoTest();

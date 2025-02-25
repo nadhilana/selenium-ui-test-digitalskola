@@ -1,7 +1,7 @@
 const { Builder, By, Key, until } = require("selenium-webdriver");
 const assert = require("assert");
 
-async function saucedemoLoginTest() {
+async function saucedemoTest() {
   const browsers = ["chrome", "firefox", "MicrosoftEdge"];
 
   for (let browser of browsers){
@@ -48,4 +48,4 @@ async function saucedemoLoginTest() {
   }
 }
 
-saucedemoLoginTest();
+saucedemoTest();
