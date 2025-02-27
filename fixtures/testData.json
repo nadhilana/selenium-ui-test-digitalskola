@@ -1,0 +1,37 @@
+{
+  "baseUrl": "https://www.saucedemo.com",
+  "validUser": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "invalidUser": {
+    "username": "standard_user",
+    "password": "passwordsalah"
+  },
+  "messages": {
+    "expectedLoginError": "Username and password do not match",
+    "loginError": "Error Message does not match",
+    "loginSuccess": "Login Test Passed!",
+    "loginFailed": "Login Failed Test Passed!",
+    "addToCartSuccess": "Add to Cart Test Passed!",
+    "checkoutSuccess": "Checkout Test Passed!"
+  },
+  "assertTitle": "Swag Labs",
+  "titleError": "Title does not include 'Swag Labs'",
+  "cartValidation": {
+    "itemName": "Sauce Labs Backpack",
+    "cartCount": "1"
+  },
+  "checkout": {
+    "firstName": "Nadhila",
+    "lastName": "Nur Aisya",
+    "postalCode": "12345",
+    "confirmationMessage": "THANK YOU FOR YOUR ORDER"
+  },
+  "log": {
+    "LoginSuccess": "Testing Login Success!",
+    "LoginFailed": "Testing Login Failed = Success!",
+    "AddToCart": "Testing Add to Cart Success!",
+    "Checkout": "Testing Checkout Success!"
+  }
+}
