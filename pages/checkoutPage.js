@@ -6,6 +6,10 @@ class CheckoutPage {
   }
 
   async enterCheckoutInformation(firstName, lastName, postalCode) {
+    
+    await this.driver.findElement(By.css('.shopping_cart_link')).click();
+    await this.driver.findElement(By.id('checkout')).click();
+    
     await this.driver.findElement(By.id('first-name')).sendKeys(firstName);
     await this.driver.findElement(By.id('last-name')).sendKeys(lastName);
     await this.driver.findElement(By.id('postal-code')).sendKeys(postalCode);

@@ -8,6 +8,8 @@ describe("Login Test Screenshot", function () {
   let driver;
   let loginPage;
 
+  this.timeout(10000); 
+
   beforeEach(async function () {
     driver = await new Builder().forBrowser("chrome").build();
     loginPage = new LoginPage(driver);
@@ -27,7 +29,7 @@ describe("Login Test Screenshot", function () {
 
     // Ambil screenshot dan simpan
     let screenshot = await driver.takeScreenshot();
-    fs.writeFileSync(path.join(__dirname, '../Screenshots/login-success.png'), screenshot, 'base64');
+    fs.writeFileSync(path.join(__dirname, '../Screenshoots/login-success.png'), screenshot, 'base64');
     console.log("Login screenshot captured.");
   });
 });

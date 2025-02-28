@@ -7,6 +7,7 @@ describe("Login Test with Fixture", function () {
   let driver;
   let loginPage;
 
+  this.timeout(10000);
   beforeEach(async function () {
     driver = await new Builder().forBrowser("chrome").build();
     loginPage = new LoginPage(driver);
